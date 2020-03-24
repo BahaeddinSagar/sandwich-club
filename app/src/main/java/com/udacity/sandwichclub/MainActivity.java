@@ -17,9 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
-        setContentView(R.layout.activity_main);
+        setContentView(binding.getRoot());
 
         String[] sandwiches = getResources().getStringArray(R.array.sandwich_names);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
@@ -27,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Simplification: Using a ListView instead of a RecyclerView
         //commented out because it doesn't work
-        //ListView listView = binding.sandwichesListview;
+        ListView listView = binding.sandwichesListview;
 
-        ListView listView = findViewById(R.id.sandwiches_listview);
+        //ListView listView = findViewById(R.id.sandwiches_listview);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
